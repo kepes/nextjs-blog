@@ -9,37 +9,40 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import ResponsiveAppBar from "./responsiveAppBar";
 import Image from "../public/images/banner.jpg";
+import * as React from "react";
 
 function Header(props) {
   const { sections, title } = props;
   return (
-    <Box
-      component="header"
-      sx={{
-        bgcolor: "teal",
-        backgroundImage: `url(${Image.src})`,
-        minHeight: "38.195vh",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat"
-      }}
-    >
-      <Container maxWidth="lg">
-        <header>
-          <ResponsiveAppBar />
-          <Typography
-            component="h2"
-            variant="h5"
-            color="inherit"
-            align="center"
-            noWrap
-            sx={{ flex: 1 }}
-          >
-            {title}
-          </Typography>
-        </header>
-      </Container>
-      <div class="custom-shape-divider-bottom-1641931750">
+    <React.Fragment>
+      <Box
+        component="header"
+        sx={{
+          bgcolor: "teal",
+          backgroundImage: `url(${Image.src})`,
+          minHeight: "38.195vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
+        <Container maxWidth="lg">
+          <header>
+            <ResponsiveAppBar />
+            <Typography
+              component="h2"
+              variant="h5"
+              color="inherit"
+              align="center"
+              noWrap
+              sx={{ flex: 1 }}
+            >
+              {title}
+            </Typography>
+          </header>
+        </Container>
+      </Box>
+      <div class="custom-shape-divider-bottom-1641934665">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +55,7 @@ function Header(props) {
           ></path>
         </svg>
       </div>
-    </Box>
+    </React.Fragment>
   );
 }
 
