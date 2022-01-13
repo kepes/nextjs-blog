@@ -37,7 +37,30 @@ const theme = createTheme({
       defaultProps: {
         // Some CSS
         color: "transparent",
-        elevation: "0"
+        elevation: 0
+      }
+    }
+  },
+  template: {
+    sectionDivider: {
+      wave1: {
+        position: "relative",
+        top: "-48px",
+        marginBottom: "-70px",
+        left: 0,
+        width: "100%",
+        overflow: "hidden",
+        lineHeight: 0,
+        transform: "rotate(180deg)"
+      },
+      wave1Svg: {
+        position: "relative",
+        display: "block",
+        width: "calc(100% + 1.3px)",
+        height: "49px"
+      },
+      wave1ShapeFill: {
+        fill: "#fff"
       }
     }
   }
@@ -70,7 +93,7 @@ export default function Layout({ children, home }) {
       </Head>
       <Header title="Blog" sections={sections} />
       <Box component="main" sx={{ bgcolor: "background.paper" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           <main>{children}</main>
         </Container>
       </Box>
