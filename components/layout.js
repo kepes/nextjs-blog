@@ -6,7 +6,7 @@ import Link from "next/link";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider, responsiveFontSizes } from "@mui/material/styles";
 import Header from "./header";
 import Footer from "./footer";
 import HeadMeta from "./head_meta";
@@ -27,7 +27,7 @@ const sections = [
   { title: "Travel", url: "#" }
 ];
 
-const theme = createTheme({
+const theme = responsiveFontSizes( createTheme({
   typography: {
     fontFamily: ["Roboto"].join(",")
   },
@@ -64,7 +64,7 @@ const theme = createTheme({
       }
     }
   }
-});
+}));
 
 export default function Layout({ children, home }) {
   return (

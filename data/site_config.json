@@ -1,0 +1,24 @@
+{
+    "site": {
+        "title": "Ez az oldal neve",
+        "shortTitle": "Oldal neve",
+        "description": "Ez az oldal hosszó leírása ami akár több soros is lehet"
+    },
+    "mainPage": {
+        "header": {
+            "bigText": "With Knowledge, Passion, Heart & Soul Agencies",
+            "smallText": "Agencies around the world are moving to the digital agencies. So, It is high time to introduce your agency digitaly .",
+            "button": {
+                "text": "Learn more",
+                "link": "#valami"
+            },
+            "link": {
+                "text": "Watch our works",
+                "icon": "valami",
+                "link": "#valami"
+            },
+            "image": "",
+            "mask": "" 
+        } 
+    }
+}

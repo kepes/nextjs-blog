@@ -29,7 +29,7 @@ function Wave(props) {
 }
 
 Wave.propTypes = {
-  svg: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired
 };
 
