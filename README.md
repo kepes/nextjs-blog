@@ -11,4 +11,5 @@ Needful Things:
 - React template: https://react-next-landing.redq.io/agency
 - Material style: https://bareynol.github.io/mui-theme-creator/#Appbar
 - Material color: https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=00b6ff
--
+- Animation library: https://react-spring.io/
+

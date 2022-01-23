@@ -6,10 +6,15 @@ import Link from "next/link";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider, responsiveFontSizes } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 import Header from "./header";
 import Footer from "./footer";
-import HeadMeta from "./head_meta";
+import { ParallaxProvider } from "react-scroll-parallax";
+import SmoothScroll from "./SmoothScroll/SmoothScroll";
 
 const name = "Peter Kepessss";
 export const siteTitle = "Next.js Sample Website";
@@ -24,47 +29,49 @@ const sections = [
   { title: "Science", url: "#" },
   { title: "Health", url: "#" },
   { title: "Style", url: "#" },
-  { title: "Travel", url: "#" }
+  { title: "Travel", url: "#" },
 ];
 
-const theme = responsiveFontSizes( createTheme({
-  typography: {
-    fontFamily: ["Roboto"].join(",")
-  },
-  components: {
-    // Name of the component
-    MuiAppBar: {
-      defaultProps: {
-        // Some CSS
-        color: "transparent",
-        elevation: 0
-      }
-    }
-  },
-  template: {
-    sectionDivider: {
-      wave1: {
-        position: "relative",
-        top: "-48px",
-        marginBottom: "-70px",
-        left: 0,
-        width: "100%",
-        overflow: "hidden",
-        lineHeight: 0,
-        transform: "rotate(180deg)"
+const theme = responsiveFontSizes(
+  createTheme({
+    typography: {
+      fontFamily: ["Roboto"].join(","),
+    },
+    components: {
+      // Name of the component
+      MuiAppBar: {
+        defaultProps: {
+          // Some CSS
+          color: "transparent",
+          elevation: 0,
+        },
       },
-      wave1Svg: {
-        position: "relative",
-        display: "block",
-        width: "calc(100% + 1.3px)",
-        height: "49px"
+    },
+    template: {
+      sectionDivider: {
+        wave1: {
+          position: "relative",
+          top: "-48px",
+          marginBottom: "-70px",
+          left: 0,
+          width: "100%",
+          overflow: "hidden",
+          lineHeight: 0,
+          transform: "rotate(180deg)",
+        },
+        wave1Svg: {
+          position: "relative",
+          display: "block",
+          width: "calc(100% + 1.3px)",
+          height: "49px",
+        },
+        wave1ShapeFill: {
+          fill: "#fff",
+        },
       },
-      wave1ShapeFill: {
-        fill: "#fff"
-      }
-    }
-  }
-}));
+    },
+  })
+);
 
 export default function Layout({ children, home }) {
   return (
@@ -91,16 +98,20 @@ export default function Layout({ children, home }) {
         />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <Header title="Blog" sections={sections} />
-      <Box component="main" sx={{ bgcolor: "background.paper" }}>
-        <Container maxWidth="md">
-          <main>{children}</main>
-        </Container>
-      </Box>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
+      <SmoothScroll>
+      <ParallaxProvider>
+        <Header title="Blog" sections={sections} />
+        <Box component="main" sx={{ bgcolor: "background.paper" }}>
+          <Container maxWidth="md">
+            <main>{children}</main>
+          </Container>
+        </Box>
+        <Footer
+          title="Footer"
+          description="Something here to give the footer a purpose!"
+        />
+      </ParallaxProvider>
+      </SmoothScroll>
     </ThemeProvider>
   );
 }
