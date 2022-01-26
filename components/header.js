@@ -9,30 +9,21 @@ import * as React from "react";
 import SectionDivider from "./section_divider";
 import Config from "../data/site_config";
 import { Parallax, ParallaxBanner } from "react-scroll-parallax";
+import ParalaxBackground from "./ParalaxBackground/ParalaxBackground";
 
 function Header(props) {
   const { sections, title } = props;
   return (
     <React.Fragment>
-      <ParallaxBanner
-        className="your-class"
-        layers={[
-          {
-            image: `${Image.src}`,
-            amount: 0.5,
-          },
-        ]}
-        style={{
-          height: "800px",
-        }}
-      >
-        <Box
+        <ParalaxBackground
+          image={Image}
+          imageHeight={1440}
           component="header"
           sx={{
-            bgcolor: "teal", // backgroundImage: `url(${Image.src})`,
+            bgcolor: "teal", // 
             minHeight: "81.805vh", // 38.195vh 61,805vh
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
+            //backgroundSize: "cover",
+            //backgroundPosition: "0px -750px",
             backgroundRepeat: "no-repeat",
           }}
         >
@@ -87,9 +78,7 @@ function Header(props) {
               </Box>
             </header>
           </Container>
-        </Box>
-        
-      </ParallaxBanner>
+        </ParalaxBackground>
       <SectionDivider svg="wave" height={49} />
     </React.Fragment>
   );

@@ -99,7 +99,6 @@ export default function Layout({ children, home }) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <SmoothScroll>
-      <ParallaxProvider>
         <Header title="Blog" sections={sections} />
         <Box component="main" sx={{ bgcolor: "background.paper" }}>
           <Container maxWidth="md">
@@ -110,7 +109,6 @@ export default function Layout({ children, home }) {
           title="Footer"
           description="Something here to give the footer a purpose!"
         />
-      </ParallaxProvider>
       </SmoothScroll>
     </ThemeProvider>
   );

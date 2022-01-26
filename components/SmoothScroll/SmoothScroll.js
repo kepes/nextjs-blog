@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 //import "./SmoothScroll.css";
 //import useWindowSize from "../hooks/useWindowSize";
@@ -14,15 +14,15 @@ const SmoothScroll = ({ children }) => {
 
   // 4.
   if (typeof window !== "undefined") {
-    useEffect(() => {
+    /*useEffect(() => {
       setBodyHeight();
-    }, [window.innerHeight]);
+    });
 
     const setBodyHeight = () => {
       document.body.style.height = `${
         scrollingContainerRef.current.getBoundingClientRect().height
       }px`;
-    };
+    };*/
 
     // 5.
     /*useEffect(() => {
@@ -31,10 +31,8 @@ const SmoothScroll = ({ children }) => {
 
     useEffect(() => {
       const onScroll = (e) => {
-        console.log("onScrol");
         requestAnimationFrame(() => smoothScrollingHandler());
       };
-      console.log("window.addEventListener onScroll");
       window.addEventListener("scroll", onScroll);
     });
 
