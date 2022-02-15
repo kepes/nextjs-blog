@@ -18,7 +18,49 @@
                 "link": "#valami"
             },
             "image": "",
-            "mask": "" 
-        } 
+            "mask": ""
+        }
+    },
+    "featured": {
+        "title": "Hogyan készül a süti?",
+        "description": "Úgy gondoljuk, hogy jó süti szívvel, lélekkel készül.",
+        "sections": [
+            {
+                "id": "1",
+                "icon": "cakes_pack2/Lineal Color/Cake_Icon_Lineal Color_1",
+                "title": "Szeretjük a tortát",
+                "description": "Mert a torta finom édes és van rajta gyertya is."
+            },
+            {
+                "id": "2",
+                "icon": "linear_multicolor_pack1/8968 - Lollipop",
+                "title": "Szeretjük a tortát",
+                "description": "Mert a torta finom édes és van rajta gyertya is."
+            },
+            {
+                "id": "3",
+                "icon": "linear_multicolor_pack1/8970 - Cookie",
+                "title": "Szeretjük a tortát",
+                "description": "Mert a torta finom édes és van rajta gyertya is."
+            },
+            {
+                "id": "4",
+                "icon": "cakes_pack3/Cake",
+                "title": "Szeretjük a tortát",
+                "description": "Mert a torta finom édes és van rajta gyertya is."
+            },
+            {
+                "id": "5",
+                "icon": "cakes_pack3/Coockie, bakery",
+                "title": "Szeretjük a tortát",
+                "description": "Mert a torta finom édes és van rajta gyertya is."
+            },
+            {
+                "id": "6",
+                "icon": "cakes_pack3/Dessert, cake, pie, piece",
+                "title": "Szeretjük a tortát",
+                "description": "Mert a torta finom édes és van rajta gyertya is."
+            }
+        ]
     }
 }

@@ -13,12 +13,12 @@ import {
 } from "@mui/material/styles";
 import Header from "./header";
 import Footer from "./footer";
-import { ParallaxProvider } from "react-scroll-parallax";
 import SmoothScroll from "./SmoothScroll/SmoothScroll";
+import { teal } from "@mui/material/colors";
 
-const name = "Peter Kepessss";
 export const siteTitle = "Next.js Sample Website";
 export const siteDescription = "Next.js Sample Website Description";
+
 const sections = [
   { title: "Technology", url: "#" },
   { title: "Design", url: "#" },
@@ -48,6 +48,17 @@ const theme = responsiveFontSizes(
       },
     },
     template: {
+      featured: {
+        mainTitle: { fontWeight: "light", mt: "40px" },
+        mainDescription: { fontWeight: "light" },
+        icon: { fontSize: 80},
+        title: {
+          fontWeight: "light",
+        },
+        description: {
+          fontWeight: "light",
+        },
+      },
       sectionDivider: {
         wave1: {
           position: "relative",
