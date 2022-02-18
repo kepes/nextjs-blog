@@ -10,7 +10,7 @@ import {Instagram, getInstagramPictures} from "../components/Instagram/Instagram
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  const instagramImages = await getInstagramPictures(process.env.Instagram_Access_Token);;
+  const instagramImages = await getInstagramPictures(process.env.Instagram_Access_Token, 9);;
   return {
     props: {
       allPostsData,
