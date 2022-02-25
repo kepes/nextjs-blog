@@ -1,36 +1,54 @@
-import React, { useEffect, useRef } from "react";
-
-//import "./SmoothScroll.css";
-//import useWindowSize from "../hooks/useWindowSize";
+import React, { useEffect, useRef, useState } from "react";
+import { smoothScrollCallbacks } from "./SmoothScrollCallbacks";
 
 const SmoothScroll = ({ children }) => {
-  // 1.
-  //const windowSize = useWindowSize();
-  const ease = 0.05;
+  const ease = 0.01;
   const minimum = 10;
   const previous = 0;
 
   const scrollingContainerRef = useRef();
 
-  // 4.
   if (typeof window !== "undefined") {
-    /*useEffect(() => {
+    const getHeight = () => {
+      return window.innerHeight;
+    };
+
+    const [windowHeight, setWindowHeight] = useState(getHeight());
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowHeight(getHeight());
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => {
+        console.log("removeEventListener");
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+
+    // setBodyHeight isn't good at page load because of lazy loaded components!
+    // you can check with setTimeout
+    useEffect(() => {
       setBodyHeight();
-    });
+      setTimeout(() => {
+        console.log(
+          "body height:" +
+            scrollingContainerRef.current.getBoundingClientRect().height
+        );
+      }, 1000);
+    }, []);
 
     const setBodyHeight = () => {
       document.body.style.height = `${
         scrollingContainerRef.current.getBoundingClientRect().height
       }px`;
-    };*/
-
-    // 5.
-    /*useEffect(() => {
-      requestAnimationFrame(() => smoothScrollingHandler());
-    }, [window.scrollY]);*/
+    };
 
     useEffect(() => {
       const onScroll = (e) => {
+        // setBodyHeight() necessary before calculations because lazy loaded components!
+        setBodyHeight();
         requestAnimationFrame(() => smoothScrollingHandler());
       };
       window.addEventListener("scroll", onScroll);
@@ -40,21 +58,21 @@ const SmoothScroll = ({ children }) => {
       const current = window.scrollY;
       const diff = current - previous;
       previous += diff * ease;
-      //const rounded = Math.round(data.previous * 100) / 100;
+      const rounded = Math.round(previous);
 
-      /*console.log("smoothScrollingHandler");
-      console.log("current: " + data.current);
-      console.log("previous: " + data.previous);
-      console.log("diff: " + data.diff);*/
+      scrollingContainerRef.current.style.transform = `translateY(${-rounded}px)`;
 
-      scrollingContainerRef.current.style.transform = `translateY(${Math.round(previous) * -1}px)`;
+      smoothScrollCallbacks.forEach((event) => {
+        event(rounded);
+      });
 
-      if (Math.abs(diff) > 0.5) requestAnimationFrame(() => smoothScrollingHandler());
+      if (Math.abs(diff) > 0.5)
+        requestAnimationFrame(() => smoothScrollingHandler());
     };
   }
 
   return (
-    <div className="parent">
+    <div className="smoothscroll-parent">
       <div ref={scrollingContainerRef}>{children}</div>
     </div>
   );
