@@ -19,3 +19,12 @@
 .custom-shape-divider-bottom-1641934665 .shape-fill {
   fill: #ffffff;
 }
+
+.smoothscroll-parent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
