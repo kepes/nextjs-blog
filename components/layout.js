@@ -15,6 +15,7 @@ import Header from "./header";
 import Footer from "./footer";
 import SmoothScroll from "./SmoothScroll/SmoothScroll";
 import { teal } from "@mui/material/colors";
+import {useState} from "react";
 
 export const siteTitle = "Next.js Sample Website";
 export const siteDescription = "Next.js Sample Website Description";
@@ -112,9 +113,7 @@ export default function Layout({ children, home }) {
       <SmoothScroll>
         <Header title="Blog" sections={sections} />
         <Box component="main" sx={{ bgcolor: "background.paper" }}>
-          <Container maxWidth="md">
-            <main>{children}</main>
-          </Container>
+          <main>{children}</main>
         </Box>
         <Footer
           title="Footer"

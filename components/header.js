@@ -10,9 +10,8 @@ import * as React from "react";
 import SectionDivider from "./section_divider";
 import Config from "../data/site_config";
 import ParalaxBackground from "./ParalaxBackground/ParalaxBackground";
-import SendIcon from '@mui/icons-material/Send';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { smoothScrollCallbacks } from "./SmoothScroll/SmoothScrollCallbacks";
 
 function Header(props) {
   const { sections, title } = props;
@@ -20,8 +19,9 @@ function Header(props) {
     <React.Fragment>
       <ParalaxBackground
         image={Image}
-        imageHeight={1440}
+        imageHeight={144}
         component="header"
+        scrollCallbacks={smoothScrollCallbacks}
         sx={{
           bgcolor: "teal", //
           minHeight: "81.805vh", // 38.195vh 61,805vh
@@ -40,13 +40,7 @@ function Header(props) {
                   xs: "20px",
                   sm: "20px",
                   md: "20px",
-                  lg: "100px",
-                },
-                paddingBottom: {
-                  xs: "30px",
-                  sm: "100px",
-                  md: "100px",
-                  lg: "100px",
+                  lg: "20vh",
                 },
                 width: {
                   sm: "100%",
@@ -79,7 +73,7 @@ function Header(props) {
                 </Typography>
               </Paper>
               <Box mt="20px" sx={{}}>
-                <Button size="large" variant="contained" color="secondary" sx={{ padding: "10px 20px"}} endIcon={<ArrowForwardIosIcon />}>Regisztrálok</Button>
+                <Button size="large" variant="contained" color="primary" sx={{ padding: "10px 20px"}} endIcon={<ArrowForwardIosIcon />}>Regisztrálok</Button>
               </Box>
             </Box>
           </header>
