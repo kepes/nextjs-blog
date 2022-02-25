@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "svgr": "svgr -d components/icons assets/svg"
+    "svgr": "svgr -d components/icons assets/svg",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
