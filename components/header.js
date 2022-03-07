@@ -42,9 +42,15 @@ function Header(props) {
                   md: "20px",
                   lg: "20vh",
                 },
+                paddingBottom: {
+                  xs: "30px",
+                  sm: "100px",
+                  md: "100px",
+                  lg: "100px",
+                },
                 width: {
                   sm: "100%",
-                  md: "50%",
+                  md: "50%",  
                 },
               }}
             >

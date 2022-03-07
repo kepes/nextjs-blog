@@ -62,5 +62,17 @@
                 "description": "Mert a torta finom édes és van rajta gyertya is."
             }
         ]
+    },
+    "advanteges" : {
+        "title": "Great Responsive & Strong Competitive People",
+        "subtitle": "Some hardworking People are Working Day and Night to provide you highly scalable product",
+        "buttonText": "Discover Item",
+        "buttonLink": "",
+        "list": [
+            "Amazing communication experience",
+            "Best designing experience with trending tools and sizes",
+            "Training and communication method remotely",
+            "24/7 Hour onine supports"
+        ]
     }
 }

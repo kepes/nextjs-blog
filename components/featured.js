@@ -1,14 +1,11 @@
 import PropTypes from "prop-types";
-import { Fragment } from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { SvgIcon } from "@mui/material";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import {useTheme} from "@mui/material/styles"
-import { FeaturedVideoSharp } from "@mui/icons-material";
 import HoverPaper from "../components/HoverPaper/HoverPaper"
 
 function useDynamicSVGImport(name, options = {}) {
