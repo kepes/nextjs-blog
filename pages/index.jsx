@@ -11,7 +11,7 @@ import Featured from '../components/featured';
 import Config from '../data/site_config.json';
 import { InstagramQuilted } from '../components/Instagram/Instagram';
 import { getInstagramPictures } from '../components/Instagram/InstagramBasicApi';
-import Advanteges from '../components/Advanteges';
+import Advanteges from '../components/Advanteges/Advanteges';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -35,9 +35,9 @@ export default function Home({ allPostsData, instagramImages }) {
       </Head>
       <Container maxWidth="md">
         <Featured
-          title={Config.featured.title}
-          description={Config.featured.description}
-          sections={Config.featured.sections}
+          title={Config.featured[0].title}
+          description={Config.featured[0].description}
+          sections={Config.featured[0].sections}
         />
       </Container>
 
@@ -56,12 +56,36 @@ export default function Home({ allPostsData, instagramImages }) {
           }}
         >
           <Advanteges
-            title={Config.advanteges.title}
-            subtitle={Config.advanteges.subtitle}
-            buttonText={Config.advanteges.buttonText}
-            buttonLink={Config.advanteges.buttonLink}
-            list={Config.advanteges.list}
+            title={Config.advanteges[0].title}
+            subtitle={Config.advanteges[0].subtitle}
+            buttonText={Config.advanteges[0].buttonText}
+            buttonLink={Config.advanteges[0].buttonLink}
+            list={Config.advanteges[0].list}
           />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={2} mt={10}>
+        <Grid item xs={2}/>
+        <Grid
+          item
+          xs={4}
+          justifyContent="center"
+          sx={{
+            mt: 'auto',
+            mb: 'auto',
+          }}
+        >
+          <Advanteges
+            title={Config.advanteges[1].title}
+            subtitle={Config.advanteges[1].subtitle}
+            buttonText={Config.advanteges[1].buttonText}
+            buttonLink={Config.advanteges[1].buttonLink}
+            list={Config.advanteges[1].list}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <Featured sections={Config.featured[1].sections} columns={2} id={1} />
         </Grid>
       </Grid>
 

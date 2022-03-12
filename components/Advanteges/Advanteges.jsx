@@ -23,21 +23,25 @@ export default function Advanteges({
       <Typography component="div" variant="subtitle1">
         {subtitle}
       </Typography>
-      <List
-        dense
-        sx={{
-          mt: 2,
-        }}
-      >
-        {list.map((item) => (
-          <ListItem key={Hash(item)}>
-            <ListItemIcon>
-              <ArrowForwardIcon color="primary" />
-            </ListItemIcon>
-            <ListItemText primary={item} />
-          </ListItem>
-        ))}
-      </List>
+      {list.length ? (
+        <List
+          dense
+          sx={{
+            mt: 2,
+          }}
+        >
+          {list.map((item) => (
+            <ListItem key={Hash(item)}>
+              <ListItemIcon>
+                <ArrowForwardIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
+        </List>
+      ) : (
+        ''
+      )}
       <Button
         variant="contained"
         href={buttonLink}

@@ -53,6 +53,18 @@ const theme = responsiveFontSizes(
         description: {
           fontWeight: 'light',
         },
+        instances: {
+          1: {
+            row: {
+              odd: {},
+              even: {},
+            },
+            col: {
+              odd: {},
+              even: { mt: 2 },
+            },
+          },
+        },
       },
       sectionDivider: {
         wave1: {
