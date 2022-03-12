@@ -1,14 +1,14 @@
-import Paper from "@mui/material/Paper";
-import { useState, useEffect } from "react";
+import Paper from '@mui/material/Paper';
+import { useState, useEffect } from 'react';
 
 function HoverPaper(props) {
   const [shadow, setShadow] = useState(props.minelevation);
   const [mouseInside, setMouseInside] = useState(false);
 
-  const onMouseEnter = (e) => {
+  const onMouseEnter = () => {
     setMouseInside(true);
   };
-  const onMouseLeave = (e) => {
+  const onMouseLeave = () => {
     setMouseInside(false);
   };
 
