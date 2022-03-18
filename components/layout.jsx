@@ -49,12 +49,24 @@ const theme = responsiveFontSizes(
         icon: { fontSize: 80 },
         title: {
           fontWeight: 'light',
+          fontSize: '1.4rem',
         },
         description: {
           fontWeight: 'light',
+          fontSize: '0.9rem',
         },
+        col: {},
+        row: {},
         instances: {
           1: {
+            title: {
+              fontWeight: 'light',
+              fontSize: '2.0rem',
+            },
+            description: {
+              fontWeight: 'light',
+              fontSize: '1.2rem',
+            },
             row: {
               odd: {},
               even: {},
