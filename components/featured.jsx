@@ -24,7 +24,16 @@ const StyledFeatured = styled('div')(({ theme }) => ({
 }));
 
 export default function Featured(props) {
-  const { sections, title, description, columns, id } = props;
+  const {
+    sections,
+    title,
+    description,
+    columns,
+    id,
+    topIcon,
+    minElevation,
+    maxElevation,
+  } = props;
   const theme = useTheme();
   const featuredTheme = mergeInstanceTheme(theme.template.featured, id);
 
@@ -60,8 +69,8 @@ export default function Featured(props) {
           <Grid key={id} item sm={12 / columns}>
             <Link href={link} underline="none">
               <HoverPaper
-                minelevation={5}
-                maxelevation={24}
+                minelevation={minElevation}
+                maxelevation={maxElevation}
                 sx={[
                   {
                     textAlign: 'center',
@@ -76,24 +85,27 @@ export default function Featured(props) {
                     : featuredTheme.row.odd,
                 ]}
               >
-                {!icon ? (
-                  ''
-                ) : (
-                  <Box>
-                    <DynamicSvgIcon
-                      name={icon}
-                      sx={featuredTheme.icon}
-                      inheritViewBox
-                    />
-                  </Box>
-                )}
-                <Typography paragraph sx={featuredTheme.title}>
-                  {title}
-                </Typography>
-
-                <Typography paragraph sx={featuredTheme.description}>
-                  {description}
-                </Typography>
+                <Grid container>
+                  {!icon ? (
+                    ''
+                  ) : (
+                    <Grid item xs={topIcon ? 12 : 3}>
+                      <DynamicSvgIcon
+                        name={icon}
+                        sx={featuredTheme.icon}
+                        inheritViewBox
+                      />
+                    </Grid>
+                  )}
+                  <Grid item xs={topIcon ? 12 : 9}>
+                    <Typography paragraph sx={featuredTheme.title}>
+                      {title}
+                    </Typography>
+                    <Typography paragraph sx={featuredTheme.description}>
+                      {description}
+                    </Typography>
+                  </Grid>
+                </Grid>
               </HoverPaper>
             </Link>
           </Grid>
@@ -108,6 +120,9 @@ Featured.defaultProps = {
   description: null,
   columns: 3,
   id: null,
+  topIcon: true,
+  minElevation: 5,
+  maxElevation: 24,
 };
 
 Featured.propTypes = {
@@ -123,4 +138,7 @@ Featured.propTypes = {
   description: PropTypes.string,
   columns: PropTypes.number,
   id: PropTypes.number,
+  topIcon: PropTypes.bool,
+  minElevation: PropTypes.number,
+  maxElevation: PropTypes.number,
 };
