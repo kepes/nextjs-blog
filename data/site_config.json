@@ -88,6 +88,32 @@
                     "link": "#"
                 }
             ]
+        },
+        {
+            "title": "Our Quality feature that customers always prefer to use on their products.",
+            "description": "Customers are our first priority and we provide some exceptional features that our customer prefers . That's why our customers never leave us .",
+            "sections": [
+                {
+                    "icon": "cakes_pack3/Dessert, cake, muffins",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "icon": "cakes_pack3/Cake",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "icon": "cakes_pack3/Coockie, bakery",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "icon": "cakes_pack3/Dessert, cake, pie, piece",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                }
+            ]
         }
     ],
     "advanteges": [
@@ -109,6 +135,29 @@
             "buttonText": "Work history",
             "buttonLink": "",
             "list": []
+        }
+    ],
+    "imageLists": [
+        {
+            "title": "Portfolio",
+            "subtitle": "Meet our work experience from customers",
+            "images": [
+                {
+                    "title": "Image 1",
+                    "subtitle": "This is pastry image1",
+                    "image": "/images/pastry1.jpg"
+                },
+                {
+                    "title": "Image 2",
+                    "subtitle": "This is pastry image2",
+                    "image": "/images/pastry2.jpg"
+                },
+                {
+                    "title": "Image 3",
+                    "subtitle": "This is pastry image3",
+                    "image": "/images/pastry3.jpg"
+                }
+            ]
         }
     ]
 }

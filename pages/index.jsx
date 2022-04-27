@@ -3,6 +3,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Image from 'next/image';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 import Layout, { siteTitle } from '../components/layout';
 // import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from '../lib/posts';
@@ -12,6 +15,7 @@ import Config from '../data/site_config.json';
 import { InstagramQuilted } from '../components/Instagram/Instagram';
 import { getInstagramPictures } from '../components/Instagram/InstagramBasicApi';
 import Advanteges from '../components/Advanteges/Advanteges';
+import ImageList from '../components/ImageList';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -66,7 +70,7 @@ export default function Home({ allPostsData, instagramImages }) {
       </Grid>
 
       <Grid container spacing={2} mt={10}>
-        <Grid item xs={2}/>
+        <Grid item xs={2} />
         <Grid
           item
           xs={4}
@@ -88,7 +92,40 @@ export default function Home({ allPostsData, instagramImages }) {
           <Featured sections={Config.featured[1].sections} columns={2} id={1} />
         </Grid>
       </Grid>
-
+      <Container
+        maxWidth="lg"
+        sx={{
+          mt: 10,
+        }}
+      >
+        <ImageList
+          images={Config.imageLists[0].images}
+          title={Config.imageLists[0].title}
+          subtitle={Config.imageLists[0].subtitle}
+        />
+      </Container>
+      <Grid container spacing={2} mt={10}>
+      <Grid item xs={2}/>
+        <Grid item xs={6}>
+          <Featured
+            title={Config.featured[2].title}
+            description={Config.featured[2].description}
+            sections={Config.featured[2].sections}
+            topIcon={false}
+            columns={2}
+            minElevation={0}
+            maxElevation={0}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <Image
+            src="/images/strawberry.jpg"
+            width="3840"
+            height="1740"
+            quality={10}
+          />
+        </Grid>
+      </Grid>
       <Container maxWidth="md">
         <h2>Blog</h2>
         <ul>
