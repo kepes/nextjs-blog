@@ -10,6 +10,10 @@ import {
 import Header from './header';
 import Footer from './footer';
 import SmoothScroll from './SmoothScroll/SmoothScroll';
+import { useContext } from 'react';
+import { GlobalContext } from '../pages/_app';
+import { getStrapiMedia } from '../lib/media';
+import Seo from "../components/seo";
 
 export const siteTitle = 'Next.js Sample Website';
 export const siteDescription = 'Next.js Sample Website Description';
@@ -76,11 +80,19 @@ const theme = responsiveFontSizes(
               even: { mt: 2 },
             },
           },
+          2: {
+            mainTitle: {
+              textAlign: 'left',
+            },
+            mainDescription: {
+              textAlign: 'left',
+            },
+          },
         },
       },
       sectionDivider: {
         wave1: {
-          position: 'relative',
+          position: 'relative', 
           top: '-48px',
           marginBottom: '-70px',
           left: 0,
@@ -103,33 +115,27 @@ const theme = responsiveFontSizes(
   }),
 );
 
-export default function Layout({ children }) {
+export default function Layout({ children, seo }) {
+  const { favicon } = useContext(GlobalContext);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content={siteDescription} />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <SmoothScroll>
-        <Header title="Blog" sections={sections} />
-        <Box component="main" sx={{ bgcolor: 'background.paper' }}>
-          <main>{children}</main>
-        </Box>
-        <Footer
-          title="Footer"
-          description="Something here to give the footer a purpose!"
+        <link
+          rel="shortcut icon"
+          href={getStrapiMedia(favicon)}
         />
-      </SmoothScroll>
+      </Head>
+      <Seo seo={seo} />
+      <Header title="Blog" sections={sections} />
+      <Box component="main" sx={{ bgcolor: 'background.paper' }}>
+        <main>{children}</main>
+      </Box>
+      <Footer
+        title="Footer"
+        description="Something here to give the footer a purpose!"
+      />
     </ThemeProvider>
   );
 }

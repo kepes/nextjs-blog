@@ -4,11 +4,9 @@ import Link from 'next/link';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Image from 'next/image';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Layout, { siteTitle } from '../components/layout';
 // import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from '../lib/posts';
+// import { getSortedPostsData } from '../lib/posts';
 import Date from '../components/date';
 import Featured from '../components/featured';
 import Config from '../data/site_config.json';
@@ -16,22 +14,25 @@ import { InstagramQuilted } from '../components/Instagram/Instagram';
 import { getInstagramPictures } from '../components/Instagram/InstagramBasicApi';
 import Advanteges from '../components/Advanteges/Advanteges';
 import ImageList from '../components/ImageList';
+import Articles from '../components/article';
+import { fetchAPI } from '../lib/api';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const articles = await fetchAPI('/articles', { populate: ['image', 'category'] });
   const instagramImages = await getInstagramPictures(
     process.env.Instagram_Access_Token,
     12,
   );
+  console.log(articles);
   return {
     props: {
-      allPostsData,
+      articles: articles.data,
       instagramImages,
     },
   };
 }
 
-export default function Home({ allPostsData, instagramImages }) {
+export default function Home({ articles, instagramImages }) {
   return (
     <Layout home>
       <Head>
@@ -105,9 +106,10 @@ export default function Home({ allPostsData, instagramImages }) {
         />
       </Container>
       <Grid container spacing={2} mt={10}>
-      <Grid item xs={2}/>
-        <Grid item xs={6}>
+        <Grid item xs={2} />
+        <Grid item xs={5}>
           <Featured
+            id={2}
             title={Config.featured[2].title}
             description={Config.featured[2].description}
             sections={Config.featured[2].sections}
@@ -117,30 +119,18 @@ export default function Home({ allPostsData, instagramImages }) {
             maxElevation={0}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={5} position="relative" mt={15}>
           <Image
             src="/images/strawberry.jpg"
             width="3840"
             height="1740"
+            layout="responsive"
             quality={10}
           />
         </Grid>
       </Grid>
       <Container maxWidth="md">
-        <h2>Blog</h2>
-        <ul>
-          {allPostsData.map(({ id, date, title }) => (
-            <li key={id}>
-              <Link href={`/posts/${id}`}>
-                <a href="#top">{title}</a>
-              </Link>
-              <br />
-              <small>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        <Articles articles={articles}/>
       </Container>
     </Layout>
   );
@@ -152,7 +142,7 @@ Home.defaultProps = {
 };
 
 Home.propTypes = {
-  allPostsData: PropTypes.arrayOf(
+  articles: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,

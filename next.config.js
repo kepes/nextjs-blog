@@ -1,6 +1,8 @@
 module.exports = {
+  reactStrictMode: true,
   images: {
-    domains: ["scontent-vie1-1.cdninstagram.com"],
+    domains: ["scontent-vie1-1.cdninstagram.com", 'localhost'],
+    loader: "default",
   },
 
   webpack(config, options) {
