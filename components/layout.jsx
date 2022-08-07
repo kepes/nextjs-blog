@@ -12,7 +12,7 @@ import Footer from './footer';
 import SmoothScroll from './SmoothScroll/SmoothScroll';
 import { useContext } from 'react';
 import { GlobalContext } from '../pages/_app';
-import { getStrapiMedia } from '../lib/media';
+import getStrapiMedia from '../lib/media';
 import Seo from "../components/seo";
 
 export const siteTitle = 'Next.js Sample Website';
