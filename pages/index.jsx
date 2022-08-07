@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Link from 'next/link';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Image from 'next/image';
@@ -18,12 +17,11 @@ import Articles from '../components/article';
 import { fetchAPI } from '../lib/api';
 
 export async function getStaticProps() {
-  const articles = await fetchAPI('/articles', { populate: ['image', 'category'] });
+  const articles = await fetchAPI('/articles', { populate: ['cover', 'category'] });
   const instagramImages = await getInstagramPictures(
     process.env.Instagram_Access_Token,
     12,
   );
-  console.log(articles);
   return {
     props: {
       articles: articles.data,
@@ -129,7 +127,7 @@ export default function Home({ articles, instagramImages }) {
           />
         </Grid>
       </Grid>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Articles articles={articles}/>
       </Container>
     </Layout>
