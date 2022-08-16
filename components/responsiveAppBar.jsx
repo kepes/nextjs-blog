@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import data from '../data/test.json';
 
-const ResponsiveAppBar = () => {
+function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -94,5 +94,5 @@ const ResponsiveAppBar = () => {
       </Container>
     </AppBar>
   );
-};
+}
 export default ResponsiveAppBar;

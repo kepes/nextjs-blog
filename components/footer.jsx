@@ -1,28 +1,28 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
-function Copyright() {
+function Copyright({title}) {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
+      {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
+        {title}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
-      {"."}
+      .
     </Typography>
   );
 }
 
 function Footer(props) {
   const { description, title } = props;
-
   return (
-    <Box component="footer" sx={{ bgcolor: "background.paper", py: 6 }}>
+    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography
           variant="subtitle1"
@@ -32,7 +32,7 @@ function Footer(props) {
         >
           {description}
         </Typography>
-        <Copyright />
+        <Copyright title={title}/>
       </Container>
     </Box>
   );

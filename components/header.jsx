@@ -1,0 +1,110 @@
+import PropTypes from 'prop-types';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import * as React from 'react';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ResponsiveAppBar from './responsiveAppBar';
+import Image from '../public/images/banner.jpg';
+import SectionDivider from './section_divider';
+import Config from '../data/site_config';
+import ParalaxBackground from './ParalaxBackground/ParalaxBackground';
+import { smoothScrollCallbacks } from './SmoothScroll/SmoothScrollCallbacks';
+
+function Header(props) {
+  const { sections, title } = props;
+  return (
+    <>
+      <ParalaxBackground
+        image={Image}
+        imageHeight={144}
+        component="header"
+        scrollCallbacks={smoothScrollCallbacks}
+        sx={{
+          bgcolor: 'teal', //
+          minHeight: '81.805vh', // 38.195vh 61,805vh
+          // backgroundSize: "cover",
+          // backgroundPosition: "0px -750px",
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <Container maxWidth="lg">
+          <header>
+            <ResponsiveAppBar />
+            <Box
+              sx={{
+                paddingTop: {
+                  xs: '20px',
+                  sm: '20px',
+                  md: '20px',
+                  lg: '20vh',
+                },
+                paddingBottom: {
+                  xs: '30px',
+                  sm: '100px',
+                  md: '100px',
+                  lg: '100px',
+                },
+                width: {
+                  sm: '100%',
+                  md: '50%',
+                },
+              }}
+            >
+              <Paper
+                elevation={10}
+                sx={{
+                  bgcolor: 'rgba(255,255,255,.3)',
+                  padding: '15px',
+                  zIndex: '999999',
+                }}
+              >
+                <Typography
+                  component="h2"
+                  variant="h3"
+                  align="left"
+                  paragraph
+                  sx={{ flex: 1, fontWeight: 'light', opacity: '1' }}
+                >
+                  {Config.mainPage.header.bigText}
+                </Typography>
+                <Typography
+                  align="left"
+                  sx={{ flex: 1, fontWeight: 'light', opacity: '1' }}
+                >
+                  {Config.mainPage.header.smallText}
+                </Typography>
+              </Paper>
+              <Box mt="20px" sx={{}}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  color="primary"
+                  sx={{ padding: '10px 20px' }}
+                  endIcon={<ArrowForwardIosIcon />}
+                >
+                  Regisztrálok
+                </Button>
+              </Box>
+            </Box>
+          </header>
+        </Container>
+      </ParalaxBackground>
+      <SectionDivider svg="wave" height={49} />
+    </>
+  );
+}
+
+Header.propTypes = {
+  sections: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+export default Header;

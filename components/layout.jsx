@@ -7,29 +7,13 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from '@mui/material/styles';
+import { useContext } from 'react';
 import Header from './header';
 import Footer from './footer';
 import SmoothScroll from './SmoothScroll/SmoothScroll';
-import { useContext } from 'react';
 import { GlobalContext } from '../pages/_app';
 import getStrapiMedia from '../lib/media';
-import Seo from "../components/seo";
-
-export const siteTitle = 'Next.js Sample Website';
-export const siteDescription = 'Next.js Sample Website Description';
-
-const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
-];
+import Seo from "./seo";
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -116,11 +100,12 @@ const theme = responsiveFontSizes(
 );
 
 export default function Layout({ children, seo }) {
-  const { favicon } = useContext(GlobalContext);
+  const { favicon, siteName, footerText, siteTitle } = useContext(GlobalContext);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
+        <title>{siteTitle}</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link
           rel="shortcut icon"
@@ -128,13 +113,13 @@ export default function Layout({ children, seo }) {
         />
       </Head>
       <Seo seo={seo} />
-      <Header title="Blog" sections={sections} />
+      <Header title="Blog" />
       <Box component="main" sx={{ bgcolor: 'background.paper' }}>
         <main>{children}</main>
       </Box>
       <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
+        title={siteName}
+        description={footerText}
       />
     </ThemeProvider>
   );

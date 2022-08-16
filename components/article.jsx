@@ -1,12 +1,12 @@
-import Link from 'next/link';
 import Grid from '@mui/material/Grid';
-import Image from 'next/image';
-import Date from './date';
-import getStrapiMedia from '../lib/media';
 import Typography from '@mui/material/Typography';
+import Image from 'next/image';
+import Link from 'next/link';
+import getStrapiMedia from '../lib/media';
+import Date from './date';
 
 export default function Articles({ articles }) {
-  //articles.map((article) => console.log(article.attributes.cover));
+  // articles.map((article) => console.log(article.attributes.cover));
   const articlesCol = 3;
   const containerWidth = 1200;
   const imageWidth = containerWidth / articlesCol;
@@ -20,11 +20,11 @@ export default function Articles({ articles }) {
               src={getStrapiMedia(article.attributes.cover)}
               width={imageWidth}
               height={
-                (imageWidth / article.attributes.cover.data.attributes.width) *
-                article.attributes.cover.data.attributes.height
+                (imageWidth / article.attributes.cover.data.attributes.width)
+                * article.attributes.cover.data.attributes.height
               }
               quality={10}
-              //layout="responsive"
+              // layout="responsive"
             />
             <small>
               <Date dateString={article.attributes.publishedAt} />
