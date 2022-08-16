@@ -4,7 +4,7 @@ import { GlobalContext } from '../pages/_app';
 import getStrapiMedia from '../lib/media';
 
 function Seo({ seo }) {
-  const { defaultSeo, siteName } = useContext(GlobalContext);
+  const { defaultSeo, siteName, siteTitle } = useContext(GlobalContext);
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,
@@ -12,7 +12,7 @@ function Seo({ seo }) {
   const fullSeo = {
     ...seoWithDefaults,
     // Add title suffix
-    metaTitle: `${seoWithDefaults.metaTitle} | ${siteName}`,
+    metaTitle: `${siteTitle} | ${siteName}`,
     // Get full image URL
     shareImage: getStrapiMedia(seoWithDefaults.shareImage),
   };
