@@ -1,23 +1,33 @@
-import PropTypes from 'prop-types';
-import Head from 'next/head';
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Image from 'next/image';
-import Layout, { siteTitle } from '../components/layout';
+import PropTypes from 'prop-types';
+import Layout from '../components/layout';
 // import utilStyles from "../styles/utils.module.css";
 // import { getSortedPostsData } from '../lib/posts';
-import Date from '../components/date';
+import Advanteges from '../components/Advanteges/Advanteges';
+import Articles from '../components/article';
 import Featured from '../components/featured';
-import Config from '../data/site_config.json';
+import FooterMenu from '../components/FooterMenu';
+import ImageList from '../components/ImageList';
 import { InstagramQuilted } from '../components/Instagram/Instagram';
 import { getInstagramPictures } from '../components/Instagram/InstagramBasicApi';
-import Advanteges from '../components/Advanteges/Advanteges';
-import ImageList from '../components/ImageList';
-import Articles from '../components/article';
+import Config from '../data/site_config.json';
 import { fetchAPI } from '../lib/api';
 
 export async function getStaticProps() {
-  const articles = await fetchAPI('/articles', { populate: ['cover', 'category'] });
+  const articles = await fetchAPI('/articles', {
+    populate: ['cover', 'category'],
+  });
+  const footerMenu = await fetchAPI('/footer-menus', {
+    populate: { elements: { populate: '*' } },
+  });
+
+  // console.log(footerMenu.data[0]);
+  // console.log(footerMenu.data[0].attributes.elements[0].page);
+  // console.log(footerMenu.data[0].attributes.elements[0].article.data);
+
   const instagramImages = await getInstagramPictures(
     process.env.Instagram_Access_Token,
     12,
@@ -25,17 +35,15 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articles.data,
+      footerMenu: footerMenu.data,
       instagramImages,
     },
   };
 }
 
-export default function Home({ articles, instagramImages }) {
+export default function Home({ articles, instagramImages, footerMenu }) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout>
       <Container maxWidth="md">
         <Featured
           title={Config.featured[0].title}
@@ -128,7 +136,10 @@ export default function Home({ articles, instagramImages }) {
         </Grid>
       </Grid>
       <Container maxWidth="lg">
-        <Articles articles={articles}/>
+        <Articles articles={articles} />
+      </Container>
+      <Container maxWidth="lg" sx={{ mt: 10 }}>
+        <FooterMenu menu={footerMenu} />
       </Container>
     </Layout>
   );
