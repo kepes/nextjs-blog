@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["scontent-vie1-1.cdninstagram.com", 'localhost'],
+    domains: ["scontent-muc2-1.cdninstagram.com", 'scontent-vie1-1.cdninstagram.com', 'localhost'],
     loader: "default",
   },
 
