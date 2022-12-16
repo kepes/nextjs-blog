@@ -1,0 +1,163 @@
+{
+    "site": {
+        "title": "Ez az oldal neve",
+        "shortTitle": "Oldal neve",
+        "description": "Ez az oldal hosszó leírása ami akár több soros is lehet"
+    },
+    "mainPage": {
+        "header": {
+            "bigText": "With Knowledge, Passion, Heart & Soul Agencies",
+            "smallText": "Agencies around the world are moving to the digital agencies. So, It is high time to introduce your agency digitaly .",
+            "button": {
+                "text": "Learn more",
+                "link": "#valami"
+            },
+            "link": {
+                "text": "Watch our works",
+                "icon": "valami",
+                "link": "#valami"
+            },
+            "image": "",
+            "mask": ""
+        }
+    },
+    "featured": [
+        {
+            "title": "Hogyan készül a süti?",
+            "description": "Úgy gondoljuk, hogy jó süti szívvel, lélekkel készül.",
+            "sections": [
+                {
+                    "id": "1",
+                    "icon": "cakes_pack2/Lineal Color/Cake_Icon_Lineal Color_1",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "id": "2",
+                    "icon": "linear_multicolor_pack1/8968 - Lollipop",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "id": "3",
+                    "icon": "linear_multicolor_pack1/8970 - Cookie",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "id": "4",
+                    "icon": "cakes_pack3/Cake",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "id": "5",
+                    "icon": "cakes_pack3/Coockie, bakery",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "id": "6",
+                    "icon": "cakes_pack3/Dessert, cake, pie, piece",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                }
+            ]
+        },
+        {
+            "sections": [
+                {
+                    "id": "1",
+                    "title": "20+",
+                    "description": "Companies Engaged"
+                },
+                {
+                    "id": "2",
+                    "title": "199",
+                    "description": "Happy Customers"
+                },
+                {
+                    "id": "3",
+                    "title": "300+",
+                    "description": "Project Complete"
+                },
+                {
+                    "id": "4",
+                    "title": "& Much More",
+                    "description": "Check out!",
+                    "link": "#"
+                }
+            ]
+        },
+        {
+            "title": "Our Quality feature that customers always prefer to use on their products.",
+            "description": "Customers are our first priority and we provide some exceptional features that our customer prefers . That's why our customers never leave us .",
+            "sections": [
+                {
+                    "icon": "cakes_pack3/Dessert, cake, muffins",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "icon": "cakes_pack3/Cake",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "icon": "cakes_pack3/Coockie, bakery",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                },
+                {
+                    "icon": "cakes_pack3/Dessert, cake, pie, piece",
+                    "title": "Szeretjük a tortát",
+                    "description": "Mert a torta finom édes és van rajta gyertya is."
+                }
+            ]
+        }
+    ],
+    "advanteges": [
+        {
+            "title": "Great Responsive & Strong Competitive People",
+            "subtitle": "Some hardworking People are Working Day and Night to provide you highly scalable product",
+            "buttonText": "Discover Item",
+            "buttonLink": "",
+            "list": [
+                "Amazing communication experience",
+                "Best designing experience with trending tools and sizes",
+                "Training and communication method remotely",
+                "24/7 Hour onine supports"
+            ]
+        },
+        {
+            "title": "Working With Knowledge, Passion, Heart & Soul",
+            "subtitle": "We have worked with some leading agencies around the globe and their appreciation is our main strength.",
+            "buttonText": "Work history",
+            "buttonLink": "",
+            "list": []
+        }
+    ],
+    "imageLists": [
+        {
+            "title": "Portfolio",
+            "subtitle": "Meet our work experience from customers",
+            "images": [
+                {
+                    "title": "Image 1",
+                    "subtitle": "This is pastry image1",
+                    "image": "/images/pastry1.jpg"
+                },
+                {
+                    "title": "Image 2",
+                    "subtitle": "This is pastry image2",
+                    "image": "/images/pastry2.jpg"
+                },
+                {
+                    "title": "Image 3",
+                    "subtitle": "This is pastry image3",
+                    "image": "/images/pastry3.jpg"
+                }
+            ]
+        }
+    ]
+}
